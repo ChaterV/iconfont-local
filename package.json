@@ -1,19 +1,18 @@
 {
   "name": "iconfont-local",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "repository": "git@github.com:ChaterV/iconfont-local.git",
   "author": "chaterv",
   "license": "MIT",
   "main": "index.js",
   "files": [
     "build",
-    "script",
     "template",
     "package.json",
     "README.md"
   ],
   "scripts": {
-    "compile": "rimraf build && mkdir build && tsc"
+    "compile": "rimraf build && mkdir build && tsc && cp src/script/iconfont.sh build/script"
   },
   "bin": {
     "iconfont-local-init": "./build/createJson.js",

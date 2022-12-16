@@ -8,7 +8,7 @@ import path from 'path'
 const iconfontConfigPath = './iconfontConfig.json'
 // const args = minimist<{ config: string }>(process.argv.slice(2))
 const exec = util.promisify(child_process.exec)
-const appPath = path.join(__dirname, '../script/iconfont.sh');
+const appPath = path.join(__dirname, './script/iconfont.sh');
 const iconFile = require(path.resolve(process.cwd(), iconfontConfigPath))
 const runClean = async function () {
     Object.keys(iconFile).forEach(key => {

@@ -10,28 +10,29 @@ const compileIcon = (icons) => {
     const index_foot = svg.indexOf('</svg>')
     str += `<symbol id="icon-${font_class}" ${viewBox}>${svg.substring(index_head, index_foot)}</symbol>`
   })
-  !(function (a) {
+  /* @ts-ignore */
+  !(function(a: any) {
     var l,
-      h,
-      o,
-      c,
-      i,
-      t = `<svg>${str}</svg>`,
-      v = (v = document.getElementsByTagName('script'))[v.length - 1].getAttribute('data-injectcss'),
-      p = function (a, l) {
-        if (l.parentNode.hasChildNodes()) {
-          const children = l.parentNode.childNodes
-          let hasSvg = false
-          for (let i = 0; i < children.length; i++) {
-            if (children[i].tagName === 'svg') {
-              hasSvg = true
-              break
+        h,
+        o,
+        c,
+        i,
+        t: any = `<svg>${str}</svg>`,
+        v = (v = document.getElementsByTagName('script'))[v.length - 1].getAttribute('data-injectcss'),
+        p = function (a, l) {
+          if (l.parentNode.hasChildNodes()) {
+            const children = l.parentNode.childNodes
+            let hasSvg = false
+            for (let i = 0; i < children.length; i++) {
+              if (children[i].tagName === 'svg') {
+                hasSvg = true
+                break
+              }
             }
+            /* 阻止重复生成svg */
+            if (!hasSvg) l.parentNode.insertBefore(a, l)
           }
-          /* 阻止重复生成svg */
-          if (!hasSvg) l.parentNode.insertBefore(a, l)
         }
-      }
     if (v && !a.__iconfont__svg__cssinject__) {
       a.__iconfont__svg__cssinject__ = !0
       try {
@@ -55,26 +56,21 @@ const compileIcon = (icons) => {
     }
 
     (l = function () {
-      var a,
-        l = document.createElement('div')
+      let a, l: any = document.createElement('div')
       ;(l.innerHTML = t), (t = null), (l = l.getElementsByTagName('svg')[0]) && (l.setAttribute('aria-hidden', 'true'), (l.style.position = 'absolute'), (l.style.width = 0), (l.style.height = 0), (l.style.overflow = 'hidden'), (l = l), (a = document.body).firstChild ? p(l, a.firstChild) : a.appendChild(l))
     }),
-      document.addEventListener
-        ? ~['complete', 'loaded', 'interactive'].indexOf(document.readyState)
-          ? setTimeout(l, 0)
-          : ((h = function () {
-              document.removeEventListener('DOMContentLoaded', h, !1), l()
-            }),
-            document.addEventListener('DOMContentLoaded', h, !1))
-        : document.attachEvent &&
-          ((o = l),
-          (c = a.document),
-          (i = !1),
-          z(),
-          (c.onreadystatechange = function () {
-            'complete' == c.readyState && ((c.onreadystatechange = null), m())
-          }))
+        document.addEventListener ? ~['complete', 'loaded', 'interactive'].indexOf(document.readyState) ? setTimeout(l, 0) : ((h = function () {
+          document.removeEventListener('DOMContentLoaded', h, !1), l()
+          // @ts-ignore
+        }), document.addEventListener('DOMContentLoaded', h, !1)) : document.attachEvent &&
+            ((o = l),
+                (c = a.document),
+                (i = !1),
+                z(),
+                (c.onreadystatechange = function () {
+                  'complete' == c.readyState && ((c.onreadystatechange = null), m())
+                }))
   })()
 }
 
-module.exports = compileIcon
+export default compileIcon

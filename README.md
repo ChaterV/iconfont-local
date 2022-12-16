@@ -57,3 +57,27 @@ npx iconfont-local-build
 # 用法
 1. Vue 可参考 [And Design Vue 提供的 createFromIconfontCN 方法](https://antdv.com/components/icon-cn/#components-icon-demo-iconfont)
 2. React 可参考 [Ant Design 提供的 createFromIconfontCN 方法](https://ant.design/components/icon-cn#components-icon-demo-scripturl)
+
+例：
+
+在线方法：
+```ts
+import { createFromIconfontCN } from "@ant-design/icons-vue";
+import iconfontConfig from "iconfont.json";
+
+// 此方法需要保证你的 iconfont 更新后，手动更新了在线链接
+const IconFont = createFromIconfontCN({
+  scriptUrl: iconfontConfig.data.font.js_file // 替换为你的 iconfont.json 路径
+})
+```
+
+离线方法：
+```ts
+// 此方法无需手动更新在线链接，即是 iconfont 在线链接维护也可正常使用（前提是 json 文件可正常获取）
+import { createFromIconfontCN } from "@ant-design/icons-vue";
+import iconfontConfig from "iconfont.json"; // 替换为你的 iconfont.json 路径
+
+const IconFont = createFromIconfontCN({
+  scriptUrl: iconfontConfig.data.icons
+})
+```
