@@ -1,6 +1,6 @@
 {
   "name": "iconfont-local",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "repository": "git@github.com:ChaterV/iconfont-local.git",
   "author": "chaterv",
   "license": "MIT",
@@ -10,6 +10,11 @@
     "template",
     "package.json",
     "README.md"
+  ],
+  "keywords": [
+    "iconfont",
+    "Ant Design",
+    "Ant Design Vue"
   ],
   "scripts": {
     "compile": "rimraf build && mkdir build && tsc && cp src/script/iconfont.sh build/script"
