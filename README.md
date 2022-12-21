@@ -45,6 +45,8 @@ npx iconfont-local-init
 ##### referer
 找到请求标头里的 referer 并复制
 
+![](https://raw.githubusercontent.com/ChaterV/iconfont-local/main/iconfont%E7%A4%BA%E4%BE%8B.jpg)
+
 
 ### Step 3 生成 iconfont.json 文件
 
