@@ -74,12 +74,14 @@ const IconFont = createFromIconfontCN({
 ```
 
 离线方法：
+
 ```ts
 // 此方法无需手动更新在线链接，即是 iconfont 在线链接维护也可正常使用（前提是 json 文件可正常获取）
-import { createFromIconfontCN } from "@ant-design/icons-vue";
+import {createFromIconfontCN} from "@ant-design/icons-vue";
+import compileIcon from "iconfont-local/build/script/compileIcon";
 import iconfontConfig from "iconfont.json"; // 替换为你的 iconfont.json 路径
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: iconfontConfig.data.icons
+    scriptUrl: compileIcon(iconfontConfig.data.icons)
 })
 ```
